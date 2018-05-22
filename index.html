@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.wrappr{
+			width: 100%;
+			height: 100px;
+			background-color: gray;
+			position: relative;
+		}
+		.nav{
+			width: 100%;
+			height: 48px;
+			position: fixed;
+			left: 0;
+			top: 0;
+			/*background-color: pink;*/
+			box-shadow: 0 0 1px 0px rgba(0,0,0,0.15);
+		}
+
+		.nav .nav-content{
+			width: 1280px;
+			margin: 0 auto;
+			height: 48px;
+			/*background-color: gray;*/
+		}
+		/*logo*/
+		.nav .nav-content .logo{
+			width: 140px;
+			height: 48px;
+			float: left;
+			/*background-image: url("./img/")*/
+		}
+		/*left-li*/
+		.nav .nav-content .list{
+			float:right;
+			width: 458px;
+			height: 48px;
+		}
+		.nav .nav-content .list .ul-list li{
+			float: left;
+			list-style: none;
+			width: 80px;
+			text-align: center;
+			height: 48px;
+			line-height: 48px;
+			position: relative;
+			color: #333;
+			font-style: normal;
+    		font-weight: normal;
+    		font-size: 15px;
+		}
+		.nav .nav-content .list .ul-list li::before{
+			content: "";
+			width: 24px;
+			height: 24px;
+			position: absolute;
+			left: -3px;
+			top: 11px;
+			background-image: url("./icon/wxb主页.svg");
+			background-size: 100% 100%;
+		}
+		.nav .nav-content .list .ul-list li:nth-child(2)::before{
+			background-image: url("./icon/iconfont-shipin.svg");
+			background-size: 100% 100%;
+		}
+		.nav .nav-content .list .ul-list li:nth-child(3)::before{
+			background-image: url("./icon/iconfont-xingxing.svg");
+			background-size: 100% 100%;
+		}
+		.nav .nav-content .list .ul-list li:nth-child(4)::before{
+			background-image: url("./icon/iconfont-youhuiquan.svg");
+			background-size: 100% 100%;
+		}
+		.nav .nav-content .list .li-ri{
+			width: 65px;
+			float: left;
+			list-style: none;
+			height: 48px;
+			line-height: 48px;
+			text-align: center;
+			font-style: normal;
+    		font-weight: normal;
+    		font-size: 15px;
+		}
+		.nav .nav-content .list .li-span{
+			display: inline-block;
+			width: 2px;
+			color: #d9d9d9;
+		}
+		
+		.nav .nav-content .search{
+			float: left;
+			width: 468px;
+			height: 28px;
+			border: 1px solid #cccccc;
+			text-align: center;
+			margin: 8px 0px;
+			background-color: #f5f2f2;
+			position:relative;
+		}
+		.nav .nav-content .search input{
+			position: absolute;
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		    border: 0;
+		    background-color: transparent;
+		    /*padding: 4px 33px 4px 10px;*/
+		    height: 26px;
+		    line-height: 26px;
+		}
+		.nav .nav-content .search span{
+			position: absolute;
+			left: 0;
+			top: 0;
+			color: gray;
+			font-size: 14px;
+			height: 24px;
+			line-height: 24px;
+			margin: 2px 10px;
+		}
+		.nav .nav-content .search a{
+			position: absolute;
+			right: 12px;
+			top: 6px;
+			/*border: 1px solid red;*/
+			display: inline-block;
+			width: 18px;
+			height: 18px;
+			background-image: url("./icon/iconfont-youhuiquan.png");
+			background-size: 100% 100%;
+		}
+		/*main-content*/
+		.main-content{
+			width: 100%;
+			height: 1000px;
+			/*background-color: pink;*/
+			margin-top:50px;
+			
+		}
+		.main-content .left-nav{
+			position: fixed;
+			top:50px;
+			left:80px;
+			/*border: 1px solid red;*/
+			width: 126px;
+			height: 1000px;
+		}
+		.main-content .left-nav ul{
+			/*border: 1px solid black;*/
+			margin:0;
+			padding: 0;
+		}
+		.main-content .left-nav li{
+			width: 110px;
+			height: 40px;
+			line-height:40px;
+			list-style: none;
+			/*border: 1px solid black;*/
+			display: inline-block;
+			text-align: center;
+			font-size: 18px;
+			padding: 0px 8px;
+			border-radius: 5px;
+		}
+		.main-content .left-nav li:hover{
+			background-color:linear-gradient(128deg, #fa2f2f 0%, #ff5b36 90%);
+			background-color: #ff5b36;
+			color:#fff;
+		}
+		/*content*/
+		.content{
+			width: 660px;
+			height: 1000px;
+			border: 1px solid black;
+			position: absolute;
+			left: 220px;
+			top: 50px;
+		}
+		.content .lunbo{
+			width: 660px;
+			height: 372px;
+			background-color: gray;
+			position: relative;
+			overflow: hidden;
+		}
+		/*轮播图*/
+		.content .lunbo .img{
+			position: absolute;
+			width:4620px;
+			height: 372px;
+			/*left:-660px;*/
+
+		}
+		.content .lunbo .img img{
+			width: 660px;
+			height: 372px;
+			float: left;
+		}
+		.content .lunbo .button{
+			width: 200px;
+			position: absolute;
+			left: 50%;
+			bottom: 20px;
+			transform: translateX(-100px);
+		}
+		.content .lunbo .button .btnc{
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			border-radius: 15px;
+			background-color: black;
+			color: white;
+			font-size: 16px;
+			font-weight: 500;
+			text-align: center;
+		}
+		.content .lunbo .point{
+			width: 30px;
+			height: 50px;
+			display: inline-block;
+			position: absolute;
+			top: 50%;
+			/*left: 20px;*/
+			transform: translateY(-25px);
+			background-image: url("./img/left.png");
+			background-size: 100% 100%;
+			/*border:1px solid red;*/
+		}
+		.content .lunbo .left{
+			left: 20px;
+		}
+		.content .lunbo .right{
+			right: 20px;
+			background-image: url("./img/right.png");
+			/*-webkit-transform:rotate(180deg);*/
+			 /*transform: translateY(-25px);	*/
+
+		}
+		.content .lunbo .button .btnc:first-child{
+			background-color: red;
+		}
+		/*登录框*/
+		.login{
+			width: 340px;
+			height: 326px;
+			background-color: #f2f2f5;
+			position: absolute;
+			left: 920px;
+			top: 50px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			/*display: table-cell;*/
+			/*text-align: center;*/
+
+			/*border: 1px solid red;*/
+		}
+		.login .c-login{
+			/*vertical-align: middle;*/
+			width: 300px;
+			height: 286px;
+			background-color: #fff;
+			display: flex;
+			justify-content:center;
+			}
+		.login .c-login .w-login{
+			width: 270px;
+			height: 279px;
+			/*border: 1px solid red;*/
+		}
+		.login_top{
+			width: 100%;
+			height: 44px;
+
+
+		}
+		.login_top a{
+			width: 49%;
+			display: inline-block;
+			height: 33px;
+			line-height: 33px;
+			text-align: center;
+			text-decoration: none;
+			color: #333;
+			font-weight: 500;
+			/*border-bottom: 3px solid #eb7350;*/
+		}
+		.login_top a:nth-child(1){
+			border-bottom: 2.5px solid #eb7350;
+		}
+		.input input{
+			display: inline-block;
+			height: 30px;
+			line-height: 30px;
+			width: 274px;
+			margin-top: 34px;
+			color:gray;
+		}
+		.denglv a{
+			margin-top: 40px;
+			display: inline-block;
+			height: 30px;
+			width: 274px;
+			background-color: #eb7350;
+			color: white;
+			font-size: 16px;
+			font-weight: 400;
+			text-align: center;
+			line-height: 30px;
+			font-family: artial;
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="nav">
+			<div class="nav-content">
+				<div class="logo">
+					<img src="./icon/logo.png" alt="">
+				</div>
+				<div class="search">
+					<div>
+						<span>大家都在搜：</span>
+						<input type="">
+						<a href=""></a>
+					</div>
+					
+				</div>
+
+				<div class="list">
+					<lu class="ul-list">
+						<li>首页</li>
+						<li>游戏</li>
+						<li>发现</li>
+						<li>视频</li>	
+					</lu>
+					 	<li class="li-ri">注册</li>
+						<li class="li-ri li-span"><span>|</span></li>
+						<li class="li-ri">登录</li>
+				</div>
+			</div>
+		</div>
+		<div class="main-content">
+			<div class="left-nav">
+				<ul>
+					<li>热门</li>
+					<li>头条</li>
+					<li>榜单</li>
+					<li>新鲜事</li>
+					<li>视频</li>
+					<li>搞笑</li>
+					<li>军事</li>
+					<li>娱乐</li>
+					<li>绯闻</li>
+					<li>爱爱好</li>
+					<li>兴趣</li>
+				</ul>
+			</div>
+		</div>
+		<div class="content">
+			<div class="lunbo">
+				<div class="img" style="left: -660px">
+					<img src="./img/five.jpg"  alt="">
+					<img src="./img/one.jpg" alt="">
+					<img src="./img/two.jpg" alt="">
+					<img src="./img/three.jpg" alt="">
+					<img src="./img/four.jpg" alt="">
+					<img src="./img/five.jpg" alt="">
+					<img src="./img/one.jpg" alt="">
+				</div>
+				<div class="button">
+					<span class="btnc">1</span>
+					<span class="btnc">2</span>
+					<span class="btnc">3</span>
+					<span class="btnc">4</span>
+					<span class="btnc">5</span>
+				</div>
+				<span class="left point"></span>
+				<span class="right point"></span>
+			</div>
+		</div>
+		<div class="login">
+			<div class="c-login">
+				<div class="w-login">
+					<div class="login_top">
+						<a href="">账号登录</a>
+						<a href="">密码登录</a>
+					</div>
+					<div class="input">
+						<input type="text" value="邮箱/手机" onFocus="if(value=='邮箱/手机') {value=''}" onBlur="if(value==''){value='请输入您的帐号'} value="邮箱/手机">
+						
+						<input type="text" value="请输入密码" onFocus="if(value=='请输入密码') {value=''}" onBlur="if(value==''){value='请输入密码'} value="请输入密码">
+						
+						
+					</div>
+					<div class="denglv">
+						<a href="">登录</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+
+		// 	// event:default 阻止冒泡
+		// }
+	
+		var wrap = document.querySelector(".img");
+		var leftMove = document.querySelector(".left");
+		var rightMove = document.querySelector(".right");
+		var btn = document.getElementsByClassName("btnc"); 
+	     var index = 0;
+		leftMove.onclick = function (){
+			pre_img();
+		}
+		rightMove.onclick = function (){
+			next_img();
+		}
+		function pre_img (){
+			index -- ;
+			if(index < 0){
+				index = 4
+			}
+			var newLeft;
+			if(wrap.style.left === "0px"){
+				newLeft = -2640;
+			}else{
+				newLeft = parseInt(wrap.style.left) + 660;
+			}
+			wrap.style.left = newLeft + "px";
+		}
+		function next_img(){
+			index ++;
+			if(index > 4){
+				index = 0;
+			}
+			var newLeft;
+			if(wrap.style.left === "-3960px"){
+				newLeft = "-1320";
+			}else{
+				newLeft = parseInt(wrap.style.left) - 660;
+			}
+			wrap.style.left = newLeft + "px";
+			// showCurrentDots();
+		}
+		function autoPlay(){
+			var timer = setInterval(function(){
+				next_img();
+				
+			},2000);
+		}
+		autoPlay();
+		function showCurrentDots(){
+			for(var i = 0;i < btn.length; i ++){
+				btn[i].style.backgroundColor = "black";
+			}
+			btn[index].style.backgroundColor = "red";
+		}
+		
+		for(var i = 0;i < btn.length; i ++){
+			(function(i){
+				var dis = index -i;
+				btn[i].onclick = function(){
+					switch(index){
+						case 1 :
+							dis = 1 - i;
+						break;
+						case 2 :
+							dis = 2- i;
+						break;
+						case 3 :
+							dis = 3 - i;
+						break;
+						case 4 :
+							dis = 4 - i;
+						break;
+						case 5 :
+							dis = 5 - i;
+					}
+				wrap.style.left = (parseInt(wrap.style.left) + dis * 660) + "px";
+				index = i;
+				showCurrentDots();
+				}
+			})(i)
+		}
+	</script>
+</body>
+</html>
